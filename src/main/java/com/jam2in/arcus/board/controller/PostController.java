@@ -67,19 +67,6 @@ public class PostController {
 
     @RequestMapping("/post/detail")
     public String detail(@RequestParam int id, Model model) {
-        /*
-        for (int i=0; i < 100; i ++) {
-            Comment comment = new Comment();
-            comment.setContent("comment"+i);
-            comment.setPost_id(328);
-            commentService.create(comment);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        */
         Post post = postService.get(id);
 
         //Comment List Pagination

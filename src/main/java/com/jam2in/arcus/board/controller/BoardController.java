@@ -96,30 +96,12 @@ public class BoardController {
         return "redirect:/board";
     }
 
-    /* ORIGINAL
-    @RequestMapping(path = "/board/info", method = RequestMethod.GET)
-    public String get(@RequestParam int id) {
-        LOGGER.info("GET BOARD");
-        boardService.get(id);
-        return "board";
-    }
-     */
     @RequestMapping(path = "/board/info", method = RequestMethod.GET)
     public String get(@RequestParam int id,
                       @RequestParam(required = false, defaultValue = "1") int pageIndex,
                       @RequestParam(required = false, defaultValue = "1") int groupIndex,
                       Model model){
 
-        /* TEST CASE
-        for (int i = 0; i < 300; i++) {
-            Post post = new Post();
-            post.setTitle("title" + i);
-            post.setContent("content" + i);
-            post.setBoard_id(id);
-            postService.create(post);
-            Thread.sleep(1000);
-        }
-        */
         int listCnt = postService.countPost(id);
 
         Pagination pagination = new Pagination();
